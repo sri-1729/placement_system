@@ -1,0 +1,19 @@
+
+
+.div-form{
+	margin: 25px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.Lform{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Poppins', sans-serif;
+
+}

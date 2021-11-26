@@ -21,14 +21,28 @@
 	<ul class = "nav-links">
 		<li><a href="#">Home</a>
 		</li>
-		<li><a href="#">Login</a>
+		{% if 'user' in session%}
+		<li><a href="{{ url_for('login.logout') }}">Logout</a></li>
+		{% else %}
+		<li><a href="{{ url_for('login.logIn') }}">Login</a></li>
+		{% endif %}
 		</li>
 		<li><a href="#">About</a>
 		</li>
 	</ul>
 </nav>
 
+{% if 'user' in session %}
+{% if session['user']['type'] == 'student' %}
+<img src ="{{ url_for('static', filename='images/undraw_Brainstorming_re_1lmw.png') }}">
+{% elif session['user']['type'] == 'company' %}
+<img src ="{{ url_for('static', filename='images/undraw_Business_decisions_re_84ag.png') }}">
+{% else %}
+<img src ="{{ url_for('static', filename='images/undraw_Experts_re_i40h.png') }}">
+{% endif %}
+{% else %}
 <img src="{{ url_for('static', filename='images/undraw_Profile_re_4a55.png') }}">
+{% endif %}
 
 
 {% endblock %}

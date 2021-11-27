@@ -34,7 +34,13 @@
 
 {% if 'user' in session %}
 {% if session['user']['type_'] == 'student' %}
+<div class="wrapper">
 <img src ="{{ url_for('static', filename='images/undraw_Brainstorming_re_1lmw.png') }}">
+<ul class="function">
+<li><a href="{{ url_for('profile.edit_profile')}}" class="link-button">Edit Your Profile</a></li>
+<li><a href="#" class="link-button">View Your Profile</a></li>
+</ul>
+</div>
 {% elif session['user']['type_'] == 'company' %}
 <img src ="{{ url_for('static', filename='images/undraw_Business_decisions_re_84ag.png') }}">
 {% else %}

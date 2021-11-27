@@ -36,3 +36,16 @@ class Login(db.Model):
 def load_user(userid):
 	return Login.query.get(userid)
 
+
+#Profile Table
+class Profile(db.Model):
+	__tablename__ = 'profile'
+	stu_uid = db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)
+	fname = db.Column(db.String(50))
+	lname = db.Column(db.String(50))
+	cgpa = db.Column(db.Float(2))
+	branch = db.Column(db.String(5))
+	contact_no = db.Column(db.String(13))
+	email_id = db.Column(db.String(70))
+	resume_link = db.Column(db.String())
+	placement_status = db.Column(db.String(1))

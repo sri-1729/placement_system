@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}EditProfile{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='fstyles.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+<nav>
+	<div class="logo">
+		<h4>Edit your profile</h4>
+	</div>
+</nav>
+
+<form method="POST" class = 'Lform'>
+	{{ form.hidden_tag() }}
+	{{ form.fname.label }} {{ form.fname() }}
+	<br>
+	{{ form.lname.label }} {{ form.lname() }}
+	<br>
+	{{ form.cgpa.label }} {{ form.cgpa() }}
+	<br>
+	{{ form.branch.label }} {{ form.branch() }}
+	<br>
+	{{ form.resume_link.label }} {{ form.resume_link() }}
+	<br>
+	{{ form.contact_no.label }} {{ form.contact_no() }}
+	<br>
+	{{ form.email.label }} {{ form.email() }}
+	<br>
+	{{ form.submit() }}
+	<br>
+</form>
+{% endblock %}

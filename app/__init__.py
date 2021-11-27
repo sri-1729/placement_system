@@ -25,5 +25,7 @@ def create_app(config_name):
 	#blueprint for authorization
 	from .login import login as l_bp 
 	app.register_blueprint(l_bp, url_prefix = '/auth')
-
+	from .profile import profile as p_bp
+	app.register_blueprint(p_bp, url_prefix = '/profile')
+	
 	return app

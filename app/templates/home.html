@@ -33,9 +33,9 @@
 </nav>
 
 {% if 'user' in session %}
-{% if session['user']['type'] == 'student' %}
+{% if session['user']['type_'] == 'student' %}
 <img src ="{{ url_for('static', filename='images/undraw_Brainstorming_re_1lmw.png') }}">
-{% elif session['user']['type'] == 'company' %}
+{% elif session['user']['type_'] == 'company' %}
 <img src ="{{ url_for('static', filename='images/undraw_Business_decisions_re_84ag.png') }}">
 {% else %}
 <img src ="{{ url_for('static', filename='images/undraw_Experts_re_i40h.png') }}">

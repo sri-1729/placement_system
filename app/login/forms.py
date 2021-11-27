@@ -3,6 +3,6 @@ from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
-	userId = StringField('Enter userid', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
-	password = PasswordField('Enter password', validators = [DataRequired()])
-	submit = SubmitField('Submit')
+	userId = StringField('userid', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
+	password = PasswordField('password', validators = [DataRequired()], render_kw = {'class':'input-form'})
+	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})

@@ -15,5 +15,50 @@
 	display: flex;
 	flex-direction: column;
 	font-family: 'Poppins', sans-serif;
+	align-items: center;
+	letter-spacing: 1.5px;
+	font-size: 15px;
 
+}
+
+.submit-button{
+	font-family: 'Poppins', sans-serif;
+	color: #408000;
+	height: 30px;
+	width: 50%;	
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	box-shadow: none;
+	background-color: #d9ffb3;
+	transition-duration: 0.2s;
+
+}
+
+.submit-button:hover{
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	height: 30px;
+	width: 50%;	
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	box-shadow: none;
+	background-color: #408000;
+}
+
+.input-form{
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid #408000;
+	transition-duration: 0.2s;
+	padding-top: 8px;
+	outline: none;
+	font-size: 16px;
+}
+
+.input-form:active{
+	height: 30px;
+	border: none;
+	border-bottom: 2px solid #408000;
 }

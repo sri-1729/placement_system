@@ -27,5 +27,10 @@ def create_app(config_name):
 	app.register_blueprint(l_bp, url_prefix = '/auth')
 	from .profile import profile as p_bp
 	app.register_blueprint(p_bp, url_prefix = '/profile')
+	#blueprint for roles and schedule
+	# form .role import role as r_bp
+	# app.register_blueprint(r_bp,url_prefix='/role')
+	from .register import register as reg_bp
+	app.register_blueprint(reg_bp, url_prefix='/register')
 	
 	return app

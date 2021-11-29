@@ -52,23 +52,23 @@ class Profile(db.Model):
 
 
 #Role Table
-# class Role(db.Model):
-# 	__tablename__ = 'role'
-# 	role_id = db.Column(db.Integer, primary_key='True', autoincrement=True)
-# 	company_id = db.Column(db.String(50), db.ForeignKey('login.userid'))
-# 	title = db.Column(db.String(20))
-# 	jd_link = db.Column(db.String(50))
-# 	ctc = db.Column(db.String(15))
-# 	last_date = db.Column(db.DateTime())
-# 	schedule_id = db.Column(db.Integer, db.ForeignKey('schedule.schedule_id'))
+class Role(db.Model):
+	__tablename__ = 'role'
+	role_id = db.Column(db.Integer, primary_key='True', autoincrement=True)
+	company_id = db.Column(db.String(50), db.ForeignKey('login.userid'))
+	title = db.Column(db.String(20))
+	jd_link = db.Column(db.String(50))
+	ctc = db.Column(db.String(15))
+	last_date = db.Column(db.DateTime())
+	schedule_id = db.Column(db.Integer, db.ForeignKey('schedule.schedule_id'))
 
 #Schedule Table
-# class Schedule(db.Model):
-# 	__tablename__ = 'schedule'
-# 	schedule_id = db.Column(db.Integer, primary_key='True', autoincrement=True)
-# 	ppt_date = db.Column(db.DateTime())	
-# 	test_date = db.Column(db.DateTime())
-# 	interview_date = db.Column(db.DateTime())
-# 	ppt_link = db.Column(db.String(50))
-# 	test_link = db.Column(db.String(50))
-# 	interview_link = db.Column(db.String(50))
+class Schedule(db.Model):
+	__tablename__ = 'schedule'
+	schedule_id = db.Column(db.Integer, primary_key='True', autoincrement=True)
+	ppt_date = db.Column(db.DateTime())	
+	test_date = db.Column(db.DateTime())
+	interview_date = db.Column(db.DateTime())
+	ppt_link = db.Column(db.String(50))
+	test_link = db.Column(db.String(50))
+	interview_link = db.Column(db.String(50))

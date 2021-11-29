@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Schedule{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='fstyles.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<nav>
+	<div class="logo">
+		<h4>Create Schedule</h4>
+	</div>
+</nav>
+<div class = 'div-form'>
+<form method="POST" class = 'Lform'>
+	{{ form.hidden_tag() }}
+	{{ form.ppt_date.label }} {{ form.ppt_date() }}
+	<br>
+	{{ form.test_date.label }} {{ form.test_date() }}
+	<br>
+	{{ form.interview_date.label }} {{ form.interview_date() }}
+	<br>
+	{{ form.ppt_link.label }} {{ form.ppt_link() }}
+	<br>
+	{{ form.test_link.label }} {{ form.test_link() }}
+	<br>
+	{{ form.interview_link.label }} {{ form.interview_link() }}
+	<br>
+	{{ form.submit() }}
+	<br>
+</form>
+</div>
+{% endblock %}

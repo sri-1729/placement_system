@@ -43,7 +43,13 @@
 </ul>
 </div>
 {% elif session['user']['type_'] == 'company' %}
+<div class="wrapper">
 <img src ="{{ url_for('static', filename='images/undraw_Business_decisions_re_84ag.png') }}">
+<ul class="function">
+<li><a href="{{ url_for('role.role_create')}}" class="link-button">Create a Role</a></li>
+<!-- <li><a href="#" class="link-button">View Your Profile</a></li> -->
+</ul>
+</div>
 {% else %}
 <img src ="{{ url_for('static', filename='images/undraw_Experts_re_i40h.png') }}">
 {% endif %}

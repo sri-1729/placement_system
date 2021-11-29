@@ -13,7 +13,8 @@ def register():
 		cpassword = form.cpassword.data
 		type_ = form.type_.data
 		if password != cpassword:
-			return render_template('reg_error.html')
+			msg = "Passwords don't match"
+			return render_template('register.html',form=form,msg=msg)
 		sql1 = f"SELECT userid FROM login where userid = '{userid}'"
 		res = db.engine.execute(sql1).first()
 		if not res:
@@ -22,5 +23,6 @@ def register():
 			db.session.commit()
 			return redirect(url_for('main.home'))
 		else:
-			return render_template('reg_error.html')
-	return render_template('register.html', form = form)
+			msg = "Userid already exists!"
+			return render_template('register.html',form=form,msg=msg)
+	return render_template('register.html', form = form,msg='')

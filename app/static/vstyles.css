@@ -1,0 +1,61 @@
+
+
+.jobs-list-container{
+	display:flex;
+	justify-content: space-around;
+	padding: 20px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.job-container{
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #408000;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.details{
+	list-style: none;
+	display: flex;
+	flex-direction:column;
+	font-size: 14px;
+	padding: 10px;
+}
+
+.options{
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	padding: 6px;
+	font-size: 14px;
+	gap: 3px;
+}
+
+.comp-name{
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.title{
+	font-size 16px: 
+}
+
+.status-button{
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #6c86ac;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}

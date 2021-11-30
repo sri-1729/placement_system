@@ -66,7 +66,7 @@ class Role(db.Model):
 #Schedule Table
 class Schedule(db.Model):
 	__tablename__ = 'schedule'
-	schedule_id = db.Column(db.Integer, primary_key='True', autoincrement=True)
+	schedule_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 	ppt_date = db.Column(db.DateTime())	
 	test_date = db.Column(db.DateTime())
 	interview_date = db.Column(db.DateTime())
@@ -76,7 +76,15 @@ class Schedule(db.Model):
 	
 class roles_eligibility(db.Model):
 	__tablename__='roles_eligibility'
-	role_id = db.Column(db.Integer, db.ForeignKey('role.role_id'), primary_key='True')
-	branch = db.Column(db.String(50), primary_key='True')
+	role_id = db.Column(db.Integer, db.ForeignKey('role.role_id'), primary_key=True)
+	branch = db.Column(db.String(50), primary_key=True)
 	cgpa = db.Column(db.Float(2))
-	
+
+
+#application status table
+class application_status(db.Model):
+	__tablename__='application_status'
+	stu_uid =  db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)
+	role_id = db.Column(db.Integer, db.ForeignKey('role.role_id'), primary_key=True)
+	status = db.Column(db.String(4))
+

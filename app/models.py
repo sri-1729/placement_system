@@ -60,6 +60,7 @@ class Role(db.Model):
 	jd_link = db.Column(db.String(50))
 	ctc = db.Column(db.String(15))
 	last_date = db.Column(db.DateTime())
+	admin_id = db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)
 	schedule_id = db.Column(db.Integer, db.ForeignKey('schedule.schedule_id'))
 
 #Schedule Table
@@ -72,3 +73,10 @@ class Schedule(db.Model):
 	ppt_link = db.Column(db.String(50))
 	test_link = db.Column(db.String(50))
 	interview_link = db.Column(db.String(50))
+	
+class roles_eligibility(db.Model):
+	__tablename__='roles_eligibility'
+	role_id = db.Column(db.Integer, db.ForeignKey('role.role_id'), primary_key='True')
+	branch = db.Column(db.String(50), primary_key='True')
+	cgpa = db.Column(db.Float(2))
+	

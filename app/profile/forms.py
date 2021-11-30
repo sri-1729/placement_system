@@ -13,6 +13,11 @@ class ProfileFormI(FlaskForm):
 	contact_no = StringField('Contact Number', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	email = StringField('Email', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
+	
+class CompanyFormI(FlaskForm):
+	company_name=StringField('Company Name', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
+	company_link=StringField('Company Description Link', validators = [DataRequired()], render_kw = {'class':'input-form'})
+	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
 
 
 

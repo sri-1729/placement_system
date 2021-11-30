@@ -7,6 +7,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, DecimalField
 from flask import render_template, redirect, session, url_for
 from wtforms.validators import DataRequired
+from ..helper import formatString
 
 @profile.route('/edit/', methods = ['GET', 'POST'])
 @login_required
@@ -54,10 +55,10 @@ def edit_profile():
 		form = ProfileFormE()
 		return render_template('edit_profile.html', form=form)
 
-@profile.route('/view/', methods = ['GET', 'POST'])
+@profile.route('/view/<string:stu_uid>', methods = ['GET', 'POST'])
 @login_required
-def view_profile():
-	sql1 = f"SELECT * from profile where stu_uid = '{session['user']['userid']}'"
+def view_profile(stu_uid):
+	stu_uid=formatString(stu_uid)
+	sql1 = f"SELECT * from profile where stu_uid = '{stu_uid}'"
 	profile = db.engine.execute(sql1).first()
-	print(profile)
 	return render_template('view_profile.html',profile=profile)

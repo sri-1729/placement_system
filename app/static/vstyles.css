@@ -43,7 +43,7 @@
 	font-size 16px: 
 }
 
-.status-button{
+.status-button-applied{
 	text-decoration: none;
 	font-family: 'Poppins', sans-serif;
 	color: #ffffff;
@@ -52,6 +52,40 @@
 	font-weight: bold;
 	border: none;
 	background-color: #6c86ac;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}
+
+.status-button-accepted{
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #00cc00;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}
+
+.status-button-rejected{
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #ff5000;
 	padding: 10px;
 	/*margin: 4px 4px;*/
 	letter-spacing: 1.5px;

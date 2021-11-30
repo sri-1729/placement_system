@@ -40,7 +40,11 @@
 			{% if each_role['status'] == 'NA' %}
 			<li><a href="{{ url_for('jobs.apply_job', role_id = each_role['role_id']) }}" class="link-button">Apply</a></li>
 			{% elif each_role['status'] == 'A' %}
-			<li><button class = "status-button">Applied</button></li>
+			<li><button class = "status-button-applied">Applied</button></li>
+			{% elif each_role['status'] == 'ACC' %}
+			<li><button class = "status-button-accepted">Accepted</button></li>
+			{% elif each_role['status'] == 'REJ' %}
+			<li><button class = "status-button-rejected">Rejected</button></li>
 			{% endif %}
 			<li><a href="#" class="link-button">View Role</a></li>
 		</ul>

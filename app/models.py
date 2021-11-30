@@ -73,7 +73,8 @@ class Schedule(db.Model):
 	ppt_link = db.Column(db.String(50))
 	test_link = db.Column(db.String(50))
 	interview_link = db.Column(db.String(50))
-	
+
+#roles_eligibility
 class roles_eligibility(db.Model):
 	__tablename__='roles_eligibility'
 	role_id = db.Column(db.Integer, db.ForeignKey('role.role_id'), primary_key=True)

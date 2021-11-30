@@ -1,0 +1,122 @@
+.table-wrapper{
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+}
+.roles{
+	width: 50%;
+	border-collapse: collapse;
+
+
+}
+
+.header{
+	height: 50px;
+	background-color: #408000;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	border-radius: 10px;
+}
+
+.row{
+	text-align: center;
+	border-radius:10px;
+	height: 40px;
+	background-color: #bfff80;
+	border: 1px solid #ffffff;
+	padding: 10px;
+}
+
+.normal-acc{
+text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #408000;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #d9ffb3;
+	transition-duration: 0.2s;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}
+
+.normal-rej{
+text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #ff3800;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #d9ffb3;
+	transition-duration: 0.2s;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}
+
+.acc{
+text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #408000;
+	transition-duration: 0.2s;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}
+
+.rej{
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	background-color: #ff3800;
+	transition-duration: 0.2s;
+	padding: 10px;
+	/*margin: 4px 4px;*/
+	letter-spacing: 1.5px;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+}
+
+.normal-acc:hover{
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	box-shadow: none;
+	background-color: #408000;
+}
+
+.normal-rej:hover{
+	font-family: 'Poppins', sans-serif;
+	color: #ffffff;
+	/*height: 30px;*/
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	box-shadow: none;
+	background-color: #ff3800;
+}

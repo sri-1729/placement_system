@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- <h1>Home Page</h1> -->
+<nav>
+	<div class="logo">
+		<h4>Students in a role</h4>
+	</div>
+	<ul class = "nav-links">
+		<li><a href="{{ url_for('main.home') }}">Home</a>
+	</ul>
+</nav>
+
+<div class="table-wrapper">
+<table class = "roles">
+	<tr>
+		<th class="header">Student</th>
+		<th class="header">Profile</th>
+		<th class="header">Accept</th>
+		<th class="header">Reject</th>
+	</tr>
+	{% for student in list_of_students %}
+	<tr>
+		<td class="row">{{ student['stu_uid'] }}</td>
+		<td class="row"><a class="link-button" href="{{ url_for('profile.view_profile', stu_uid=student['stu_uid']) }}">Check Profile</a></td>
+		{% if student['status'] == 'A'%}
+		<td class="row"><a class = "normal-acc" href="{{ url_for('company.accept', stu_uid = student['stu_uid'], role_id = role_id) }}">Accept</a></td>
+		<td class="row"><a class = "normal-rej" href="{{ url_for('company.reject', stu_uid = student['stu_uid'], role_id = role_id) }}">Reject</a></td>
+		{% elif student['status'] == 'ACC'%}
+		<td class="row"><a class="acc" href="{{ url_for('company.accept', stu_uid = student['stu_uid'], role_id = role_id) }}">Accepted</a></td>
+		<td class="row"><a class ="normal-rej" href="{{ url_for('company.reject', stu_uid = student['stu_uid'], role_id = role_id) }}">Reject</a></td>
+		{% elif student['status'] == 'REJ'%}
+		<td class="row"><a class = "normal-acc"href="{{ url_for('company.accept', stu_uid = student['stu_uid'], role_id = role_id) }}">Accept</a></td>
+		<td class="row"><a class = "rej" href="{{ url_for('company.reject', stu_uid = student['stu_uid'], role_id = role_id) }}">Rejected</a></td>
+		{% endif %}
+	</tr>
+	{% endfor %}
+</table>
+</div>
+
+{% endblock %}

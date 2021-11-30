@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- <h1>Home Page</h1> -->
+<nav>
+	<div class="logo">
+		<h4>Roles You Have Provided</h4>
+	</div>
+	<ul class = "nav-links">
+		<li><a href="{{ url_for('main.home') }}">Home</a>
+		</li>
+	</ul>
+</nav>
+
+<div class="table-wrapper">
+<table class = "roles">
+	<tr>
+		<th class="header">Role Title</th>
+		<th class="header">View Students</th>
+	</tr>
+	{% for role in list_of_roles %}
+	<tr>
+		<td class="row">{{ role['title'] }}</td>
+		<td class="row"><a class = "link-button" href="{{ url_for('company.view_students_comp', role_id = role['role_id']) }}">View Students</a></td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+
+{% endblock %}

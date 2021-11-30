@@ -34,5 +34,7 @@ def create_app(config_name):
 	app.register_blueprint(reg_bp, url_prefix='/register')
 	from .jobs import jobs as job_bp
 	app.register_blueprint(job_bp, url_prefix='/jobs')
+	from .admin import admin as ad_bp
+	app.register_blueprint(ad_bp, url_prefix='/admin')
 	
 	return app

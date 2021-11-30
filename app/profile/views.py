@@ -33,7 +33,7 @@ def edit_profile():
 			db.session.commit()
 		#if not exists insert to profile
 		else:
-			sql3 = f"INSERT INTO profile(stu_uid,fname,lname,cgpa,branch,contact_no,email_id,resume_link,placement_status) VALUES('{session['user']['userid']}', '{fname}', '{lname}', {cgpa}, '{branch}', '{contact}', '{email}', '{resume_link}', 'D')"
+			sql3 = f"INSERT INTO profile(stu_uid,fname,lname,cgpa,branch,contact_no,email_id,resume_link,placement_status) VALUES('{session['user']['userid']}', '{fname}', '{lname}', {cgpa}, '{branch}', '{contact}', '{email}', '{resume_link}', 'Not Placed')"
 			db.engine.execute(sql3)
 			db.session.commit()
 		return redirect(url_for('main.home'))
@@ -54,9 +54,10 @@ def edit_profile():
 		form = ProfileFormE()
 		return render_template('edit_profile.html', form=form)
 
-# @profile.route('view/<userid>')
-# def view_profile():
-# 	sql4 = f"SELECT * FROM profile"
-# 	= db.engine.execute(sql4).first()
-# 	render_template('',)
-
+@profile.route('/view/', methods = ['GET', 'POST'])
+@login_required
+def view_profile():
+	sql1 = f"SELECT * from profile where stu_uid = '{session['user']['userid']}'"
+	profile = db.engine.execute(sql1).first()
+	print(profile)
+	return render_template('view_profile.html',profile=profile)

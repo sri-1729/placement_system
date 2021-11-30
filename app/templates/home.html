@@ -39,7 +39,7 @@
 <img src ="{{ url_for('static', filename='images/undraw_Brainstorming_re_1lmw.png') }}">
 <ul class="function">
 <li><a href="{{ url_for('profile.edit_profile')}}" class="link-button">Edit Your Profile</a></li>
-<li><a href="#" class="link-button">View Your Profile</a></li>
+<li><a href="{{ url_for('profile.view_profile')}}" class="link-button">View Your Profile</a></li>
 <li><a href="{{ url_for('jobs.view_jobs') }}" class="link-button">Eligible Roles</a></li>
 </ul>
 </div>

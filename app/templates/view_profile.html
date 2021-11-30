@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}ViewProfile{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='fstyles.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+<nav>
+	<div class="logo">
+		<h4>your profile</h4>
+	</div>
+</nav>
+<div class = 'div-form'>
+<table class="table">
+  
+   
+ 
+  <tbody>
+    <tr>
+      <th scope="row">user id</th>
+      
+      <td>{{profile['stu_uid']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">first name</th>
+    
+      <td>{{profile['fname']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">last name</th>
+      
+      <td>{{profile['lname']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">cgpa</th>
+      
+      <td>{{profile['cgpa']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">branch</th>
+      
+      <td>{{profile['branch']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">contact_no</th>
+     
+      <td>{{profile['contact_no']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">resume</th>
+      
+      <td>{{profile['resume']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">email</th>
+      
+      <td>{{profile['mail_id']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">placement_status</th>
+      
+      <td>{{profile['placement_status']}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<li><a href="{{ url_for('main.home')}}" class="link-button"> Go to your home page</a></li>
+</div>
+{% endblock %}

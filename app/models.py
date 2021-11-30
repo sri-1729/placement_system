@@ -47,8 +47,8 @@ class Profile(db.Model):
 	branch = db.Column(db.String(5))
 	contact_no = db.Column(db.String(13))
 	email_id = db.Column(db.String(70))
-	resume_link = db.Column(db.String())
-	placement_status = db.Column(db.String(1))
+	resume_link = db.Column(db.String(100))
+	placement_status = db.Column(db.String(20))
 
 
 #Role Table
@@ -60,7 +60,7 @@ class Role(db.Model):
 	jd_link = db.Column(db.String(50))
 	ctc = db.Column(db.String(15))
 	last_date = db.Column(db.DateTime())
-	admin_id = db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)
+	admin_id = db.Column(db.String(50), db.ForeignKey('login.userid'))
 	schedule_id = db.Column(db.Integer, db.ForeignKey('schedule.schedule_id'))
 
 #Schedule Table

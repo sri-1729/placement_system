@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='fstyles.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<nav>
+	<div class="logo">
+		<h4>Roles Eligibility</h4>
+	</div>
+</nav>
+<div class = 'div-form'>
+<form method="POST" class = 'Lform'>
+	<ol>
+	{% for i in res %}
+		<li> {{i['branch']}} {{i['cgpa']}} </li>
+	{% endfor %}
+	</ol>
+	{{ form.hidden_tag() }}
+	{{ form.branch.label }} {{ form.branch() }}
+	<br>
+	{{ form.cgpa.label }} {{ form.cgpa() }}
+	<br>
+	{{ form.submit() }}
+	<br>
+</form>
+<li><a href="{{ url_for('main.home')}}" class="link-button"> Go to company home</a></li>
+</div>
+{% endblock %}

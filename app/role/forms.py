@@ -19,4 +19,8 @@ class ScheduleForm(FlaskForm):
 	test_link = StringField('Test Link', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	interview_link = StringField('Interview Link', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
-
+	
+class RolesEligibilityForm(FlaskForm):
+	branch = StringField('Branch', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
+	cgpa = DecimalField('CGPA', validators = [DataRequired()],rounding=2, render_kw = {'class':'input-form'})
+	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})

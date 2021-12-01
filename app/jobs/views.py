@@ -20,6 +20,10 @@ def view_jobs():
 		#to check whether already applied
 		sql3 = f"SELECT status FROM application_status WHERE stu_uid = '{session['user']['userid']}' AND role_id = {each_role['role_id']}"
 		flag = db.engine.execute(sql3).first()
+		#to get company name
+		sql4 = f"SELECT company_name FROM company WHERE com_uid = '{res['company_id']}'"
+		company_name = db.engine.execute(sql4).first()['company_name']
+		res['company_name'] = company_name
 		if flag:
 			flag = dict(flag) 
 			res['status'] = flag['status']

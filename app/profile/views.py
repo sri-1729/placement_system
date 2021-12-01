@@ -61,7 +61,7 @@ def view_profile(stu_uid):
 	stu_uid=formatString(stu_uid)
 	sql1 = f"SELECT * from profile where stu_uid = '{stu_uid}'"
 	profile = db.engine.execute(sql1).first()
-	return render_template('view_profile.html', stu_uid=stu_uid)
+	return render_template('view_profile.html', profile=profile, stu_uid=stu_uid)
 	
 @profile.route('/com_profile/', methods = ['GET', 'POST'])
 @login_required

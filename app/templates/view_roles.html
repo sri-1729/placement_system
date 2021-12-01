@@ -29,7 +29,7 @@
 <div class = "jobs-list-container">
 	{% for each_role in elg_roles_list %}
 	<div class = "job-container">
-		<div class="comp-name">{{ each_role['company_id'] }}</div>
+		<div class="comp-name">{{ each_role['company_name'] }}</div>
 		<div class="title">{{ each_role['title'] }}</div>
 		<ul class="details">
 			<li><b>Description Link</b> : {{ each_role['jd_link'] }}</li>

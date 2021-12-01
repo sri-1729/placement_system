@@ -30,4 +30,11 @@ def formatString(string):
 			final = final + each
 	return str(final)
 
+def extract_date_httpFormat(string):
+	#'2021-14-09 00:00:00'
+	x = string.split(" ")
+	only_date = x[0]
+	y = only_date.split('-')
+	final = '-'.join(y)
+	return str(final)
 

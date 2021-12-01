@@ -34,7 +34,7 @@
 			<li><b>Description Link</b> : {{ company['company_link'] }}</li>
 		</ul>
 		<ul class="function">
-		<li><a href="{{ url_for('admin.pend_roles',com_uid=company['com_uid'])}}" class="link-button">Approve</a></li>
+		<li><a href="{{ url_for('admin.allot_slots',com_uid=company['com_uid'])}}" class="link-button">Approve</a></li>
 		</ul>
 	</div>
 	{% endfor %}

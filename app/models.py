@@ -95,3 +95,9 @@ class company(db.Model):
 	company_link = db.Column(db.String(100))
 	admin_id = db.Column(db.String(50), db.ForeignKey('login.userid'))
 
+class slots(db.Model):
+	__table__name='slots'
+	com_uid = db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)
+	slot_type = db.Column(db.String(1),primary_key=True)
+	from_date = db.Column(db.DateTime())
+	to_date = db.Column(db.DateTime())

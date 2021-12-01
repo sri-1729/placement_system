@@ -29,7 +29,7 @@ def role_create():
 @login_required
 def schedule_create(role_id):
 	#sql query for getting range of dates available
-	sql0 = f"SELECT * FROM available_dates WHERE company_id = '{session['user']['userid']}'"
+	sql0 = f"SELECT * FROM slots WHERE com_uid = '{session['user']['userid']}'"
 	dates = db.engine.execute(sql0)
 	ppt_date_from, ppt_date_to  = None, None
 	test_date_from, test_date_to = None, None
@@ -37,15 +37,15 @@ def schedule_create(role_id):
 
 	for date in dates:
 		each_date = dict(date)
-		if(each_date['d_id'] == 'ppt_date'):
-			ppt_date_from = extract_date_httpFormat(each_date['from'])
-			ppt_date_to = extract_date_httpFormat(each_date['to'])
-		elif(ppt_date['d_id'] == 'test_date'):
-			test_date_from = extract_date_httpFormat(each_date['from'])
-			test_date_to = extract_date_httpFormat(each_date['to'])
-		elif(ppt_date['d_id'] == 'interview_date'):
-			interview_date_from = extract_date_httpFormat(each_date['from'])
-			interview_date_to = extract_date_httpFormat(each_date['to'])
+		if(each_date['slot_type'] == 'p'):
+			ppt_date_from = extract_date_httpFormat(each_date['from_date'])
+			ppt_date_to = extract_date_httpFormat(each_date['to_date'])
+		elif(each_date['slot_type'] == 't'):
+			test_date_from = extract_date_httpFormat(each_date['from_date'])
+			test_date_to = extract_date_httpFormat(each_date['to_date'])
+		elif(each_date['slot_type'] == 'i'):
+			interview_date_from = extract_date_httpFormat(each_date['from_date'])
+			interview_date_to = extract_date_httpFormat(each_date['to_date'])
 
 	class ScheduleForm(FlaskForm):
 		ppt_date = DateField('PPT date', format='%Y-%m-%d', validators = [DataRequired()], render_kw = {'class':'input-form', 'min':ppt_date_from, 'max':ppt_date_to})

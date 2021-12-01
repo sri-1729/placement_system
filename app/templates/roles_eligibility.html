@@ -16,13 +16,9 @@
 		<h4>Roles Eligibility</h4>
 	</div>
 </nav>
+<div class = 'div-wrap'>
 <div class = 'div-form'>
 <form method="POST" class = 'Lform'>
-	<ol>
-	{% for i in res %}
-		<li> {{i['branch']}} {{i['cgpa']}} </li>
-	{% endfor %}
-	</ol>
 	{{ form.hidden_tag() }}
 	{{ form.branch.label }} {{ form.branch() }}
 	<br>
@@ -30,7 +26,20 @@
 	<br>
 	{{ form.submit() }}
 	<br>
+	<a href="{{ url_for('main.home')}}" class="link-button"> Click To complete</a>
+
 </form>
-<li><a href="{{ url_for('main.home')}}" class="link-button"> Go to company home</a></li>
+	<div class='Lform'>
+	<ol>
+	{% for i in res %}
+		<li> {{i['branch']}} {{i['cgpa']}} </li>
+	{% endfor %}
+	</ol>
+	<div class ="small-width">Click to save and add another branch cgpa constraint.<br>Click the button below to complete the constraints</div>
+	</div>
 </div>
+
+</div>
+
+
 {% endblock %}

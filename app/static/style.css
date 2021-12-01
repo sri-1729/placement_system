@@ -96,3 +96,14 @@ img{
 	justify-content: space-around;
 	align-items: center;
 }
+
+.div-wrap{
+	display: flex;
+	justify-content: center;
+}
+
+.image{
+	width: 700px;
+	height:auto;
+}
+

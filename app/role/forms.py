@@ -23,4 +23,4 @@ class ScheduleForm(FlaskForm):
 class RolesEligibilityForm(FlaskForm):
 	branch = StringField('Branch', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	cgpa = DecimalField('CGPA', validators = [DataRequired()],rounding=2, render_kw = {'class':'input-form'})
-	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
+	submit = SubmitField('Click to save', render_kw = {'class':'submit-button'})

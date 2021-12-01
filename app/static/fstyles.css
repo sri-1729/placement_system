@@ -7,8 +7,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 
+}
+.small-width{
+	width: 50%;
+	margin:15px;
+	padding: 5px;
+	border: 1px solid #408000;
+	border-radius: 4px;
 }
 
 .Lform{
@@ -18,6 +24,7 @@
 	align-items: center;
 	letter-spacing: 1.5px;
 	font-size: 15px;
+	margin: 50px;
 
 }
 

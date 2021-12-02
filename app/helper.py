@@ -14,6 +14,7 @@ def strToInt(string):
 
 def extract_date(string):
 	#'2021-14-09 00:00:00'
+	string = str(string)
 	x = string.split(" ")
 	only_date = x[0]
 	y = only_date.split('-')

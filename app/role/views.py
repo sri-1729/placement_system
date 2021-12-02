@@ -3,7 +3,7 @@ from flask import render_template, redirect, session, url_for
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from .. import db
 from .forms import RolesEligibilityForm,RoleForm
-from ..helper import strToInt, extract_date_httpFormat
+from ..helper import strToInt, extract_date_httpFormat, extract_date
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, DecimalField, DateField
@@ -89,3 +89,22 @@ def roles_eligibilty(role_id):
 		db.session.commit()
 		return redirect(url_for('role.roles_eligibilty',role_id=role_id))
 	return render_template('roles_eligibility.html',form=form,res=res)
+
+@role.route('/view/<string:role_id>')
+@login_required
+def view_role(role_id):
+	role_id = strToInt(role_id)
+	sql1 = f"SELECT * FROM role WHERE role_id = {role_id}"
+	role = dict(db.engine.execute(sql1).first())
+	#to select from schedule
+	sql2 = f"SELECT * FROM schedule WHERE schedule_id = {role['schedule_id']}"
+	schedule = dict(db.engine.execute(sql2).first())
+	#to get company name
+	sql3 = f"SELECT company_name FROM company WHERE com_uid = '{role['company_id']}'"
+	company_name = db.engine.execute(sql3).first()['company_name']
+	role['company_name'] = company_name
+	role['last_date'] = extract_date(role['last_date'])
+	schedule['ppt_date'] = extract_date(schedule['ppt_date'])
+	schedule['test_date'] = extract_date(schedule['test_date'])
+	schedule['interview_date'] = extract_date(schedule['interview_date'])
+	return render_template('view_role.html', role = role, schedule=schedule)

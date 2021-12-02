@@ -46,7 +46,7 @@
 			{% elif each_role['status'] == 'REJ' %}
 			<li><button class = "status-button-rejected">Rejected</button></li>
 			{% endif %}
-			<li><a href="#" class="link-button">View Role</a></li>
+			<li><a href="{{url_for('role.view_role', role_id = each_role['role_id'])}}" class="link-button">View Role</a></li>
 		</ul>
 	</div>
 	{% endfor %}

@@ -40,7 +40,11 @@
 <ul class="function">
 <li><a href="{{ url_for('profile.edit_profile')}}" class="link-button">Edit Your Profile</a></li>
 <li><a href="{{ url_for('profile.view_profile', stu_uid = session['user']['userid'])}}" class="link-button">View Your Profile</a></li>
+{% if msg == 'True' %}
 <li><a href="{{ url_for('jobs.view_jobs') }}" class="link-button">Eligible Roles</a></li>
+{% else %}
+<li><a href="#" class="link-button">Placed</a></li>
+{% endif %}
 </ul>
 </div>
 {% elif session['user']['type_'] == 'company' %}

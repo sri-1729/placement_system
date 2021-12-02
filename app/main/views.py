@@ -13,4 +13,10 @@ def home():
 			res = db.engine.execute(sql).first()
 			if not res or (not res['admin_id']):
 				msg='False'
+		if session['user']['type_'] == 'student' :
+			sql = f"SELECT placement_status FROM profile WHERE stu_uid='{session['user']['userid']}'"
+			res = db.engine.execute(sql).first()
+			if res :
+				if res['placement_status'] != 'Not Placed':
+					msg='False'
 	return render_template('home.html',msg=msg)

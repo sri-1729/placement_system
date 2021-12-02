@@ -27,7 +27,8 @@ def view_jobs():
 		if flag:
 			flag = dict(flag) 
 			res['status'] = flag['status']
-		list_of_elg_roles.append(res)
+		if res['status'] != 'RF' :
+			list_of_elg_roles.append(res)
 	return render_template('view_roles.html', elg_roles_list = list_of_elg_roles)
 
 
@@ -40,5 +41,24 @@ def apply_job(role_id):
 	db.session.commit()
 	return redirect(url_for('jobs.view_jobs'))
 
-
+@jobs.route('/accept_job/<string:role_id>')
+@login_required
+def accept_job(role_id):
+	role_id = strToInt(role_id)
+	sql1 = f"UPDATE application_status SET status = 'AF' WHERE stu_uid='{session['user']['userid']}' AND role_id='{role_id}'"
+	db.engine.execute(sql1)
+	db.session.commit()
+	sql = f"UPDATE profile SET placement_status = 'Placed' WHERE stu_uid='{session['user']['userid']}'"
+	db.engine.execute(sql)
+	db.session.commit()
+	return redirect(url_for('main.home'))
+	
+@jobs.route('/reject_job/<string:role_id>')
+@login_required
+def reject_job(role_id):
+	role_id = strToInt(role_id)
+	sql1 = f"UPDATE application_status SET status = 'RF' WHERE stu_uid='{session['user']['userid']}' AND role_id='{role_id}'"
+	db.engine.execute(sql1)
+	db.session.commit()
+	return redirect(url_for('jobs.view_jobs'))
 

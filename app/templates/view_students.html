@@ -33,8 +33,12 @@
 	</tr>
 	{% for student in list_of_students %}
 	<tr>
+		{% if student['status'] != 'RF' %}
+			{% if student['status'] != 'AF' %}
 		<td class="row">{{ student['stu_uid'] }}</td>
 		<td class="row"><a class="link-button" href="{{ url_for('profile.view_profile', stu_uid=student['stu_uid']) }}">Check Profile</a></td>
+			{% endif %}
+		{% endif %}
 		{% if student['status'] == 'A'%}
 		<td class="row"><a class = "normal-acc" href="{{ url_for('company.accept', stu_uid = student['stu_uid'], role_id = role_id) }}">Accept</a></td>
 		<td class="row"><a class = "normal-rej" href="{{ url_for('company.reject', stu_uid = student['stu_uid'], role_id = role_id) }}">Reject</a></td>
@@ -44,6 +48,30 @@
 		{% elif student['status'] == 'REJ'%}
 		<td class="row"><a class = "normal-acc"href="{{ url_for('company.accept', stu_uid = student['stu_uid'], role_id = role_id) }}">Accept</a></td>
 		<td class="row"><a class = "rej" href="{{ url_for('company.reject', stu_uid = student['stu_uid'], role_id = role_id) }}">Rejected</a></td>
+		{% endif %}
+	</tr>
+	{% endfor %}
+</table>
+</div>
+
+<div class="table-wrapper">
+<table class = "roles">
+	<tr>
+		<th class="header">Student</th>
+		<th class="header">Profile</th>
+		<th class="header">Status</th>
+	</tr>
+	{% for student in list_of_students %}
+	<tr>
+		{% if student['status'] == 'RF' %}
+			<td class="row">{{ student['stu_uid'] }}</td>
+			<td class="row"><a class="link-button" href="{{ url_for('profile.view_profile', stu_uid=student['stu_uid']) }}">Check Profile</a></td>
+			<td class="row"><button class = "link-button">Denied Offer</button></td>
+		{% endif %}
+		{% if student['status'] == 'AF' %}
+			<td class="row">{{ student['stu_uid'] }}</td>
+			<td class="row"><a class="link-button" href="{{ url_for('profile.view_profile', stu_uid=student['stu_uid']) }}">Check Profile</a></td>
+			<td class="row"><button class = "link-button" >Accepted Offer</button></td>
 		{% endif %}
 	</tr>
 	{% endfor %}

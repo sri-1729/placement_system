@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- <h1>Home Page</h1> -->
+<nav>
+	<div class="logo">
+		<h4>ROLE</h4>
+	</div>
+	<ul class = "nav-links">
+		<li><a href="#">Home</a>
+		</li>
+	</ul>
+</nav>
+
+<div class='roles-wrapper'>
+	<div class = 'role-container'>
+		<div class="comp-name">{{ role['company_name'] }}</div>
+		<div class="title">{{ role['title'] }}</div>
+		<ul class="details">
+			<li><b>Description Link</b> : {{ role['jd_link'] }}</li>
+			<li><b>Stipend</b> : {{ role['ctc'] }}</li>
+			<li><b>Last Date to Apply</b> : {{ role['last_date'] }}</li>
+			<div class = 'dates'>
+				<h3> Dates of Events</h3>
+			<li><b>PPT date</b> : {{schedule['ppt_date']}}</li>
+			<li><b>Test date</b> : {{schedule['test_date']}}</li>
+			<li><b>Interview date</b> : {{schedule['interview_date']}}</li>
+			</div>
+			<div class = 'links'>
+				<h3>Links of Events</h3>
+			<li><a href="//{{schedule['ppt_link']}}" target="_blank" rel="nofollow">PPT LINK</a></li>
+			<li><a href="//{{schedule['test_link']}}" target="_blank">TEST LINK</a></li>
+			<li><a href="//{{schedule['interview_link']}}" target="_blank">INTERVIEW LINK</a></li>
+			</div>
+		</ul>
+	</div>
+</div>
+{% endblock %}

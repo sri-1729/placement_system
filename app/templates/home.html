@@ -43,7 +43,7 @@
 {% if msg == 'True' %}
 <li><a href="{{ url_for('jobs.view_jobs') }}" class="link-button">Eligible Roles</a></li>
 {% else %}
-<li><a href="#" class="link-button">Placed</a></li>
+<li><button class = "status-button-applied">You have been placed &#128512</button></li>
 {% endif %}
 </ul>
 </div>

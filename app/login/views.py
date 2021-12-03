@@ -5,6 +5,7 @@ from .. import db
 from .forms import LoginForm
 from ..models import Login
 
+#To validate the Login Information provided and start session by the corresponding user
 @login.route('/login', methods = ['POST', 'GET'])
 def logIn():
 	form = LoginForm()
@@ -34,6 +35,7 @@ def logIn():
 	msg=''
 	return render_template('login.html', form = form,msg=msg)
 
+#To logout the user from the session
 @login.route("/logout", methods=["GET"])
 @login_required
 def logout():

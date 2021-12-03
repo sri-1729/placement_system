@@ -4,6 +4,7 @@ from flask import render_template, redirect, session, url_for
 from wtforms.validators import DataRequired
 # from wtforms.fields.html5 import DateField
 
+#RoleForm used by CreateRole Page
 class RoleForm(FlaskForm):
 	title = StringField('Title', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	jd_link = StringField('Job Description Link', validators = [DataRequired()], render_kw = {'class':'input-form'})
@@ -11,6 +12,7 @@ class RoleForm(FlaskForm):
 	last_date = DateField('Last date to apply', format='%Y-%m-%d', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
 
+#ScheduleForm used by CreateSchedule Page
 class ScheduleForm(FlaskForm):
 	ppt_date = DateField('PPT date', format='%Y-%m-%d', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	test_date = DateField('Test date', format='%Y-%m-%d', validators = [DataRequired()], render_kw = {'class':'input-form'})
@@ -20,6 +22,7 @@ class ScheduleForm(FlaskForm):
 	interview_link = StringField('Interview Link', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
 	
+#RolesEligibilityForm used by RolesEligibility Page
 class RolesEligibilityForm(FlaskForm):
 	branch = StringField('Branch', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	cgpa = DecimalField('CGPA', validators = [DataRequired()],rounding=2, render_kw = {'class':'input-form'})

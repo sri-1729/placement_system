@@ -9,6 +9,7 @@ from flask import render_template, redirect, session, url_for
 from wtforms.validators import DataRequired
 from ..helper import formatString
 
+#To update and create the profile of student 
 @profile.route('/edit/', methods = ['GET', 'POST'])
 @login_required
 def edit_profile():
@@ -55,6 +56,7 @@ def edit_profile():
 		form = ProfileFormE()
 		return render_template('edit_profile.html', form=form)
 
+#To view the profile of student
 @profile.route('/view/<string:stu_uid>', methods = ['GET', 'POST'])
 @login_required
 def view_profile(stu_uid):
@@ -62,7 +64,8 @@ def view_profile(stu_uid):
 	sql1 = f"SELECT * from profile where stu_uid = '{stu_uid}'"
 	profile = db.engine.execute(sql1).first()
 	return render_template('view_profile.html', profile=profile, stu_uid=stu_uid)
-	
+
+#To create the profile of company	
 @profile.route('/com_profile/', methods = ['GET', 'POST'])
 @login_required
 def com_profile():

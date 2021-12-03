@@ -4,6 +4,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from .. import db
 from ..helper import strToInt, formatString
 
+#To display roles provided by a company
 @company.route('/view')
 @login_required
 def view_rolesProvided():
@@ -16,6 +17,7 @@ def view_rolesProvided():
 		list_of_roles.append(role)
 	return render_template('view_rolesProvided.html', list_of_roles = list_of_roles)
 
+#To display status of students applied for a role
 @company.route('/students/<string:role_id>')
 @login_required
 def view_students_comp(role_id):
@@ -29,6 +31,7 @@ def view_students_comp(role_id):
 		list_of_students.append(student)
 	return render_template('view_students.html', list_of_students = list_of_students, role_id=role_id)
 
+#To update application status of students who are selected
 @company.route('/students/status/accept/<string:stu_uid>/<string:role_id>')
 @login_required
 def accept(stu_uid, role_id):
@@ -39,6 +42,7 @@ def accept(stu_uid, role_id):
 	db.session.commit()
 	return redirect(url_for('company.view_students_comp', role_id = role_id))
 
+#To update application status of students who are rejected
 @company.route('/students/status/reject/<string:stu_uid>/<string:role_id>')
 @login_required
 def reject(stu_uid, role_id):

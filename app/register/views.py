@@ -4,6 +4,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from .. import db
 from .forms import RegisterForm
 
+#To register student or company to the placement drive
 @register.route('/', methods = ['GET', 'POST'])
 def register():
 	form = RegisterForm()

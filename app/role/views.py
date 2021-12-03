@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, DecimalField, DateField
 
-
+#To create job roles by the company
 @role.route('/create', methods = ['GET', 'POST'])
 @login_required
 def role_create():
@@ -25,6 +25,7 @@ def role_create():
 		return redirect(url_for('role.schedule_create', role_id = role_id))
 	return render_template('role_create.html', form = form)
 
+#To make schedule for the role in the dates allotted for the company
 @role.route('/schedule/<string:role_id>', methods = ['GET', 'POST'])
 @login_required
 def schedule_create(role_id):
@@ -74,6 +75,7 @@ def schedule_create(role_id):
 		#return redirect(url_for('main.home'))
 	return render_template('schedule_create.html', form = form)
 
+#To enter CGPA eligibility for each branch the role is offered
 @role.route('/roles/<string:role_id>', methods = ['GET', 'POST'])
 @login_required
 def roles_eligibilty(role_id):
@@ -90,6 +92,7 @@ def roles_eligibilty(role_id):
 		return redirect(url_for('role.roles_eligibilty',role_id=role_id))
 	return render_template('roles_eligibility.html',form=form,res=res)
 
+#To view the roles offered by the company
 @role.route('/view/<string:role_id>')
 @login_required
 def view_role(role_id):

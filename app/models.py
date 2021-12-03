@@ -2,6 +2,10 @@ from . import db
 from . import login_manager
 
 
+#Relation Schema used for the PLMS
+#Each Class specifies a relation
+#The table name specifies the name of relation
+#All the attributes of the relation are specified with type and constraints
 
 #Login Table
 class Login(db.Model):
@@ -51,7 +55,7 @@ class Profile(db.Model):
 	placement_status = db.Column(db.String(20))
 
 
-#Role Table
+#Roles Table
 class Role(db.Model):
 	__tablename__ = 'role'
 	role_id = db.Column(db.Integer, primary_key='True', autoincrement=True)
@@ -88,6 +92,7 @@ class application_status(db.Model):
 	role_id = db.Column(db.Integer, db.ForeignKey('role.role_id'), primary_key=True)
 	status = db.Column(db.String(4))
 	
+#company profile table
 class company(db.Model):
 	__table__name='company'
 	com_uid = db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)
@@ -95,6 +100,7 @@ class company(db.Model):
 	company_link = db.Column(db.String(100))
 	admin_id = db.Column(db.String(50), db.ForeignKey('login.userid'))
 
+#slots of availability table
 class slots(db.Model):
 	__table__name='slots'
 	com_uid = db.Column(db.String(50), db.ForeignKey('login.userid'), primary_key=True)

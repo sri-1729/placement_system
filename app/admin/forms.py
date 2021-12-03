@@ -3,6 +3,7 @@ from wtforms import StringField, SubmitField, PasswordField, DecimalField, DateF
 from flask import render_template, redirect, session, url_for
 from wtforms.validators import DataRequired
 
+#Slot Form used in Approve Companies Page 
 class SlotForm(FlaskForm):
 	i_fromdate = DateField('Interview From Date', format='%Y-%m-%d', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	i_todate = DateField('Interview To Date', format='%Y-%m-%d', validators = [DataRequired()], render_kw = {'class':'input-form'})

@@ -4,6 +4,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from .. import db
 from ..helper import extract_date, strToInt
 
+#To diaplay all job roles which meet student's eligibility
 @jobs.route('/eligible')
 @login_required
 def view_jobs():
@@ -31,7 +32,7 @@ def view_jobs():
 			list_of_elg_roles.append(res)
 	return render_template('view_roles.html', elg_roles_list = list_of_elg_roles)
 
-
+#To update application status who are applied for the role
 @jobs.route('/apply/<string:role_id>')
 @login_required
 def apply_job(role_id):
@@ -41,6 +42,7 @@ def apply_job(role_id):
 	db.session.commit()
 	return redirect(url_for('jobs.view_jobs'))
 
+#To update application status who accepted the offer if selected by the company
 @jobs.route('/accept_job/<string:role_id>')
 @login_required
 def accept_job(role_id):
@@ -53,6 +55,7 @@ def accept_job(role_id):
 	db.session.commit()
 	return redirect(url_for('main.home'))
 	
+#To update application status who rejected the offer if selected by the company
 @jobs.route('/reject_job/<string:role_id>')
 @login_required
 def reject_job(role_id):

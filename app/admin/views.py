@@ -4,7 +4,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from .. import db
 from .forms import SlotForm
 
-
+#To select only companies that aren't approved by the TnP Admin
 @admin.route('/pending_roles/', methods = ['GET', 'POST'])
 @login_required
 def pend_roles():
@@ -12,6 +12,7 @@ def pend_roles():
 	res = db.engine.execute(sql)
 	return render_template('roles_approve.html',res=res)
 	
+#To allot slots for approved companies by the TnP Admin
 @admin.route('/allot_slots/<string:com_uid>', methods = ['GET', 'POST'])
 @login_required
 def allot_slots(com_uid):

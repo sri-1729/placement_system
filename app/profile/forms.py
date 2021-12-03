@@ -4,6 +4,7 @@ from flask import render_template, redirect, session, url_for
 from wtforms.validators import DataRequired
 from .. import db
 
+#ProfileForm used for Edit Profile and View Profile Page
 class ProfileFormI(FlaskForm):
 	fname = StringField('First Name', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	lname = StringField('Last Name', validators = [DataRequired()], render_kw = {'class':'input-form'})
@@ -14,6 +15,7 @@ class ProfileFormI(FlaskForm):
 	email = StringField('Email', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})
 	
+#CompanyForm used for Company Page
 class CompanyFormI(FlaskForm):
 	company_name=StringField('Company Name', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	company_link=StringField('Company Description Link', validators = [DataRequired()], render_kw = {'class':'input-form'})

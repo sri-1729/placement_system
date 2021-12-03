@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from flask import render_template, redirect, session, url_for
 from .. import db
 
+#The Home Page in 4 instances, NO user or Company or TnP Admin or STudent
 @main.route('/')
 def home():
 	db.create_all()

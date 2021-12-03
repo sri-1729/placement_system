@@ -3,6 +3,7 @@ from wtforms import StringField, SubmitField, PasswordField, DecimalField, Selec
 from flask import render_template, redirect, session, url_for
 from wtforms.validators import DataRequired
 
+#RegisterForm used for Register Page
 class RegisterForm(FlaskForm):
 	userId = StringField('userid', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	password = PasswordField('password', validators = [DataRequired()], render_kw = {'class':'input-form'})

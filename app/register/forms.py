@@ -7,5 +7,5 @@ class RegisterForm(FlaskForm):
 	userId = StringField('userid', validators = [DataRequired()], render_kw = {'autocomplete':'off', 'class':'input-form'})
 	password = PasswordField('password', validators = [DataRequired()], render_kw = {'class':'input-form'})
 	cpassword = PasswordField('confirm password', validators = [DataRequired()], render_kw = {'class':'input-form'})
-	type_ = SelectField('type', choices=[('student', 'student'),('company','company'),('admin','admin')], validators = [DataRequired()], render_kw = {'class':'custom-select'})
+	type_ = SelectField('type', choices=[('student', 'student'),('company','company')], validators = [DataRequired()], render_kw = {'class':'custom-select'})
 	submit = SubmitField('Submit', render_kw = {'class':'submit-button'})

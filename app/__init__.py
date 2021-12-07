@@ -42,4 +42,7 @@ def create_app(config_name):
 	#blueprint for company 
 	from .company import company as c_bp
 	app.register_blueprint(c_bp, url_prefix='/comp')
+	#blueprint for about
+	from .about import about as ab_bp
+	app.register_blueprint(ab_bp, url_prefix='/about')
 	return app

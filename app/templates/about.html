@@ -1,0 +1,164 @@
+<!---For about page--->
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type = text/css href="{{ url_for('static', filename='fstyles.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<style>
+  .animation {
+      font-family: Helvetica, sans-serif;
+      padding: 5%;
+      text-align: center;
+      font-size: 50;
+      background: lightgreen;
+  }
+  /* Styling the area of the slides */
+  #slideshow {
+  overflow: hidden;
+  height: 250px;
+  width: 300px;
+  margin: 0 auto;
+  /*background : lightgreen;*/
+}
+
+.slide {
+  float: left;
+  height: 250px;
+  width: 300px;
+  background : white;
+  /*margin-left : 50px;*/
+}
+.slide-wrapper {
+   
+   /* Calculate the total width on the
+     basis of number of slides */
+     width: calc(300px * {{stat['com_count']}});
+    
+   /* Specify the animation with the
+     duration and speed */
+     animation: slide 20s steps({{stat['com_count']}}) infinite;
+     background : yellow;
+   }
+   @keyframes slide {
+    from {margin-left;0px}
+    to {margin-left : {{(stat['com_count']) * -300}}px;}
+   }
+   .about{
+	/*margin: 25px;*/
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+
+}
+.table{
+	margin: 0 auto;
+  justify-content: left;
+  align-items: left;
+  background: wheat;
+  /*border: lightslategray;
+  border-width : 5px;*/
+}
+.trow{
+  /*border: lightslategray;
+  border-style : solid;*/
+  align-items: left;
+  
+  /*border-width : 5px;
+  width : 100px;*/
+  
+}
+th{
+ 
+  align-items: left;
+  /*border-style : solid;*/
+  
+}
+  </style>
+
+
+  
+   
+
+{% endblock %}
+
+{% block body %}
+<nav>
+	<div class="logo">
+		<h4>About</h4>
+	</div>
+</nav>
+
+<div class = 'about'>
+<table class="table">
+  
+   
+ 
+  <tbody>
+    <tr>
+      <th scope="row" class="trow">No of students participated</th>
+      
+      <td>{{stat['student_count']}}</td>
+    </tr>
+    <tr>
+      <th scope="row" class="trow">No. of students placed</th>
+    
+      <td>{{stat['placed_count']}}</td>
+    </tr>
+    <tr>
+      <th scope="row" class="trow">No. of companies visited</th>
+    
+      <td>{{stat['com_count']}}</td>
+    </tr>
+    <tr>
+      <th scope="row" class="trow">Highest CTC offered</th>
+    
+      <td>{{stat['Highest']}}</td>
+    </tr>
+    <tr>
+      <th scope="row" class="trow">Average CTC</th>
+    
+      <td>{{stat['mean']}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+</div>
+    <div class ="animation">
+    <!-- Define the slideshow container -->
+    <div id="slideshow">
+      <div class="slide-wrapper">
+        {% for userid in stat['com_name'] %}
+          <div class="slide">
+            <h1 class="slide-number">
+                {{userid[0]}}</h1>
+                {% if userid[1:] %}
+                  <h3>Roles offered</h3>
+                  {% for i in userid[1:] %}
+                    <h5>{{i}}</h5>
+                  {% endfor %}
+                  
+                {% endif %}
+                
+            
+          </div>
+        {% endfor %}  
+          <!-- Define each of the slides
+       and write the content -->
+          
+      </div>
+  </div>
+</div>
+    
+  
+
+{% endblock %}
